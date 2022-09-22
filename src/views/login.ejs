@@ -1,0 +1,57 @@
+   <%- include('includes/head.ejs') %>
+   <%- include('includes/nav.ejs') %>
+   
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-2"></div>
+
+         <div class="col-lg-8 my-3">
+            <h1 class="display-3 text-center">Criar Conta ou Entrar</h1>
+            <p class="text-center lead">Crie sua conta ou faça seu login</p>
+
+           <div class="row">
+
+               <div class="col-lg">
+                  <h4>Criar Conta</h4>
+                  <p>Preencha seu email e senha para se cadastrar</p>
+                     <form action=" /login/register" method="POST">
+                        <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                           <div class="form-group">
+                              <label>Seu E-mail</label>
+                                 <input type="email" class="form-control" name="email">                    
+                           </div>  
+                           <div class="form-group">
+                              <label>Sua Senha</label>
+                                 <input type="password" class="form-control" name="password">                    
+                           </div>                               
+                        <button type="submit" class="btn btn-primary">Criar minha Conta</button>
+                     </form>
+               </div>                
+               
+               <div class="col-lg">
+                  <h4>Entrar</h4>
+                  <p>Preencha seu email e senha para acessar sua conta</p>
+                  <form action=" /login/login" method="POST">
+                     <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                        <div class="form-group">
+                           <label>Seu E-mail</label>
+                              <input type="email" class="form-control" name="email">                    
+                        </div>  
+                        <div class="form-group">
+                           <label>Sua Senha</label>
+                              <input type="password" class="form-control" name="password">                    
+                        </div>                               
+                     <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
+               </div>
+           </div>
+         </div>
+
+         <div class="col-lg-2"></div>         
+      </div>
+   </div>
+   
+   <%- include('includes/footer.ejs') %>
+   
+   
+   
