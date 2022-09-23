@@ -1,56 +1,39 @@
-   <%- include('includes/head.ejs') %>
-   <%- include('includes/nav.ejs') %>
-   
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-2"></div>
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
 
-         <div class="col-lg-8 my-3">
-            <h1 class="display-1 text-center">Agenda</h1>
-            <p class="text-center lead">Seus contatos estão abaixo</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
 
-            <div class="row">
-               <div class="col my-3">
-                  <div class="alert alert-danger">Um erro qualquer</div>
-               </div>
-            </div>
+    <div class="col-lg-8 my-3">
+      <h1 class="text-center">Agenda</h1>
+      <p class="text-center lead">Seus contatos estão abaixo</p>
 
-            <div class="responsive-table">
-               <table class="table">
-                  <tr>
-                     <td>Luiz</td>
-                     <td>Otavio</td>
-                     <td>12312312</td>
-                     <td>email@email.com</td>
-                  </tr>
-                  <tr>
-                     <td>Luiz</td>
-                     <td>Otavio</td>
-                     <td>12312312</td>
-                     <td>email@email.com</td>
-                  </tr>
-                  <tr>
-                     <td>Luiz</td>
-                     <td>Otavio</td>
-                     <td>12312312</td>
-                     <td>email@email.com</td>
-                  </tr>
-                  <tr>
-                     <td>Luiz</td>
-                     <td>Otavio</td>
-                     <td>12312312</td>
-                     <td>email@email.com</td>
-                  </tr>
-               </table>
-            </div>
+      <%- include('includes/messages') %>
 
-         </div>
-
-         <div class="col-lg-2"></div>         
+      <% if(contatos.length > 0) { %>
+      <div class="responsive-table">
+        <table class="table my-3">
+          <% contatos.forEach(contato => { %>
+          <tr>
+            <td><%= contato.nome %></td>
+            <td><%= contato.sobrenome %></td>
+            <td><%= contato.telefone %></td>
+            <td><%= contato.email %></td>
+            <td><a href="/contato/index/<%= contato._id %>">Editar</a></td>
+            <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
+          </tr>
+          <% }); %>
+        </table>
       </div>
-   </div>
-   
-   <%- include('includes/footer.ejs') %>
-   
-   
-   
+      <% } else { %>
+        <p class="text-center lead">Não existem contatos na sua agenda.</p>
+      <% } %>
+
+    </div>
+    
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>
