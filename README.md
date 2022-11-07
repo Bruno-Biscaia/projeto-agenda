@@ -5,8 +5,8 @@
  Algumas funcionalidades dessa aplicação:
 
 - Para acessar essa aplicação, é obrigatório realizarmos um cadastro com email e senha.
-  - Cadastro com Validação de Login e senha
-- Cadastrar, Editar, Listar e excluir contatos.
+  - Cadastro com Validação de Login e Senha
+  - Cadastrar, Editar, Listar e excluir contatos.
 
  Tecnologias utilizadas:
 
